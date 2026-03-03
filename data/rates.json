@@ -1,1 +1,7 @@
-
+[
+  {
+    "item": "General Service",
+    "vat_rate": 15,
+    "tax_rate": 5
+  }
+]
