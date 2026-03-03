@@ -1,12 +1,10 @@
-/* Corporate Dashboard Theme */
+/* Corporate Dashboard Theme — v5 premium */
 :root{
-  --bg:#0b1220; --panel:#0f172a; --soft:#111b33; --text:#e6edf6; --muted:#98a4b5; --border:#22314d;
-  --pri:#2dd4bf; --pri2:#06b6d4; --accent:#7c4dff; --shadow:0 16px 42px rgba(0,0,0,.32);
-  --radius:16px;
+  --bg:#0b1220; --panel:#0f172a; --soft:#101a30; --text:#e6edf6; --muted:#9fb0c3; --border:#22314d;
+  --pri:#2dd4bf; --pri2:#06b6d4; --accent:#7c4dff; --ok:#10b981; --warn:#f59e0b; --danger:#ef4444;
+  --shadow:0 18px 44px rgba(0,0,0,.32); --radius:16px;
 }
-:root[data-theme="light"]{
-  --bg:#f6f7fb; --panel:#ffffff; --soft:#f1f4fa; --text:#0b1220; --muted:#5f6b7c; --border:#d6dbe6;
-}
+:root[data-theme="light"]{ --bg:#f6f7fb; --panel:#ffffff; --soft:#f1f4fa; --text:#0b1220; --muted:#5f6b7c; --border:#d6dbe6; }
 *{box-sizing:border-box}
 body{margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans",sans-serif; background:var(--bg); color:var(--text)}
 
@@ -28,25 +26,35 @@ body{margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,
 
 .main{display:flex; flex-direction:column}
 .toolbar{display:flex; justify-content:space-between; gap:12px; padding:16px; background:var(--panel); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5}
-.toolbar-left{display:flex; flex-wrap:wrap; gap:12px}
+.toolbar-left{display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end}
 .field{display:flex; flex-direction:column; gap:6px}
 .field.small{width:120px}
+
+/* Category width lock (fixed) */
+.field.category.fixed{width:320px; min-width:320px; max-width:320px}
+.field.category.fixed .choices__inner, .field.category.fixed select{width:100%}
+/* Ellipsis for long text */
+.choices__inner{display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.choices__item--selectable{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
 select,input{padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:var(--soft); color:var(--text)}
 
+/* Mini charts */
+.minirow{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; padding:16px}
+.mini.card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px}
+.mini-head{font-weight:800; margin-bottom:8px; display:flex; gap:8px; align-items:center}
+
+/* Results */
 .grid5{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; padding:16px}
 .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px}
 .card h4{margin:0 0 10px}
 .badge{background:var(--soft); border:1px solid var(--border); border-radius:10px; padding:8px 10px; display:flex; justify-content:space-between; align-items:center; gap:10px}
 
 .table{display:grid; gap:6px; margin-top:10px}
-.table.like .row{display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden}
-.table.like .row.head{background:var(--soft); font-weight:700}
-.table.like .cell{padding:10px 12px; border-right:1px solid var(--border)}
-.table.like .cell:last-child{border-right:none}
 .table .row{display:grid; grid-template-columns:1fr auto; align-items:center; border:1px solid var(--border); border-radius:12px; overflow:hidden}
 .table .row .cell{padding:10px 12px; border-right:1px solid var(--border)}
 .table .row .cell:last-child{border-right:none; text-align:right; font-variant-numeric:tabular-nums}
 .table .row.emph{background:linear-gradient(135deg, rgba(45,212,191,.16), rgba(124,77,255,.12))}
 
 hr{border:0; border-top:1px solid var(--border); margin:10px 0}
-.history-actions{margin-top:8px}
+.history-actions{margin-top:8px; display:grid; gap:8px}
