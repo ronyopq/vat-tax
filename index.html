@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="bn" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VAT & TAX ক্যালকুলেটর | VAT & TAX Calculator (BD)</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" integrity="sha512-" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div id="effect-overlay" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <i class="fa-solid fa-calculator spark"></i>
+      <span id="siteTitle" data-i18n="site.title">VAT & TAX ক্যালকুলেটর (বাংলাদেশ)</span>
+    </div>
+    <div class="actions">
+      <button class="lang-btn" id="btnBN">বাংলা</button>
+      <button class="lang-btn" id="btnEN">EN</button>
+      <a class="gh" href="https://github.com/" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card intro">
+      <div class="intro-text">
+        <h1 data-i18n="hero.head">সহজে VAT & TAX হিসাব করুন</h1>
+        <p data-i18n="hero.sub">ক্যাটেগরি বেছে নিন, এমাউন্ট দিন, আর বাকি কাজ আমাদের ক্যালকুলেটর করবে। মোবাইল ও ডেস্কটপ—সব জায়গায় সুন্দরভাবে কাজ করে।</p>
+      </div>
+      <div class="intro-icons">
+        <i class="fa-solid fa-wand-magic-sparkles pulse"></i>
+        <i class="fa-solid fa-bangladeshi-taka-sign gradient"></i>
+        <i class="fa-solid fa-percent spin"></i>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <section class="card" id="inputCard">
+        <h2><i class="fa-solid fa-sliders"></i> <span data-i18n="input.title">ইনপুট</span></h2>
+        <div class="form-grid">
+          <label><i class="fa-solid fa-list"></i> <span data-i18n="input.category">ক্যাটেগরি</span>
+            <select id="category" placeholder="Select a category"></select>
+          </label>
+          <label><i class="fa-solid fa-database"></i> <span data-i18n="input.rateSource">হারের উৎস</span>
+            <select id="rateSource">
+              <option value="fromList" selected data-i18n="input.rateSource.list">লিস্ট থেকে (ফাইল অনুযায়ী)</option>
+              <option value="custom" data-i18n="input.rateSource.custom">কাস্টম হার</option>
+            </select>
+          </label>
+          <label><i class="fa-solid fa-receipt"></i> <span data-i18n="input.amountType">পরিমাণের ধরন</span>
+            <select id="amountType">
+              <option value="base" data-i18n="input.amountType.base">বেস এমাউন্ট (VAT/TDS ছাড়া)</option>
+              <option value="inc_vat" data-i18n="input.amountType.incvat">VAT সহ মোট এমাউন্ট (TDS ছাড়ার আগে)</option>
+              <option value="net" data-i18n="input.amountType.net">নেট পেমেন্ট (VAT যোগ, TDS বাদে)</option>
+            </select>
+          </label>
+          <label><i class="fa-solid fa-percent"></i> VAT (%)
+            <input type="number" id="vat" step="0.01" min="0" placeholder="15" disabled />
+          </label>
+          <label><i class="fa-solid fa-clipboard-check"></i> TAX/TDS (%)
+            <input type="number" id="tax" step="0.01" min="0" placeholder="5" disabled />
+          </label>
+          <label><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span data-i18n="input.amount">পরিমাণ (Tk)</span>
+            <input type="number" id="amount" step="0.01" min="0" value="1000" />
+          </label>
+        </div>
+        <div class="btn-row">
+          <button id="calcBtn" class="btn primary big"><i class="fa-solid fa-equals"></i> <span data-i18n="btn.calculate">ক্যালকুলেট</span></button>
+          <button id="resetBtn" class="btn ghost"><i class="fa-solid fa-rotate"></i> <span data-i18n="btn.reset">রিসেট</span></button>
+          <button id="pdfBtn" class="btn accent"><i class="fa-solid fa-file-pdf"></i> <span data-i18n="btn.download">ডাউনলোড (PDF)</span></button>
+        </div>
+      </section>
+
+      <section class="card" id="resultCard">
+        <h2><i class="fa-solid fa-chart-simple"></i> <span data-i18n="result.title">রেজাল্ট</span></h2>
+        <div class="results">
+          <div class="kv"><span data-i18n="result.base">বেস এমাউন্ট</span><strong id="baseOut" class="odometer">–</strong></div>
+          <div class="kv"><span>VAT</span><strong id="vatOut" class="odometer">–</strong></div>
+          <div class="kv"><span>TDS</span><strong id="taxOut" class="odometer">–</strong></div>
+          <div class="sep"></div>
+          <div class="kv highlight"><span data-i18n="result.gross">মোট বিল (VAT সহ)</span><strong id="grossOut" class="odometer">–</strong></div>
+          <div class="kv highlight"><span data-i18n="result.net">নেট পেমেন্ট</span><strong id="netOut" class="odometer">–</strong></div>
+        </div>
+        <p class="note" data-i18n="result.note">নোট: এখানে TDS ধরা হয়েছে বেস এমাউন্টের উপর প্রযোজ্য (সাধারণ প্র্যাকটিস)। প্রয়োজনে কাস্টম হার বেছে নিন।</p>
+      </section>
+    </section>
+
+    <section class="card tips">
+      <h2><i class="fa-solid fa-lightbulb"></i> <span data-i18n="tips.title">টিপস</span></h2>
+      <ul class="fancy">
+        <li data-i18n="tips.t1">ড্রপডাউনটি সার্চেবল—কেবল টাইপ করুন, দ্রুত ফিল্টার হবে।</li>
+        <li data-i18n="tips.t2">ক্যালকুলেট চাপলেই একটি শান্তিপূর্ণ ও মজার অ্যানিমেশন দেখাবে।</li>
+        <li data-i18n="tips.t3">PDF বাটনে ক্লিক করলে আজকের তারিখসহ পুরো পেইজের স্ক্রিনশট PDF হবে।</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <i class="fa-solid fa-shield-heart"></i>
+      <span data-i18n="footer.copy">© ২০২৬ VAT & TAX ক্যালকুলেটর · GitHub Pages দিয়ে হোস্টেড</span>
+    </div>
+  </footer>
+
+  <!-- Vendor libs -->
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
