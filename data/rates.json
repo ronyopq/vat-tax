@@ -1,6 +1,319 @@
 [
   {
-    "item": "General Service",
+    "item_bn": "যানবাহন (গাড়ি)",
+    "item_en": "Vehicle (Car)",
+    "vat_rate": 15,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "খাদ্য",
+    "item_en": "Food",
+    "vat_rate": 5,
+    "tax_rate": 2
+  },
+  {
+    "item_bn": "ভেন্যু ভাড়া",
+    "item_en": "Venue rent",
+    "vat_rate": 15,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "তেল",
+    "item_en": "Fuel / Oil",
+    "vat_rate": 7.5,
+    "tax_rate": 2
+  },
+  {
+    "item_bn": "স্টেশনারি আইটেম",
+    "item_en": "Stationery items",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "ব্যানার ও ফেস্টুন",
+    "item_en": "Banner & festoon",
+    "vat_rate": 10,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "আসবাবপত্র",
+    "item_en": "Furniture",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "বাসস্থান এবং অন্যান্য",
+    "item_en": "Accommodation & others",
+    "vat_rate": 15,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "সংবাদপত্র- ছাপা",
+    "item_en": "Newspaper - print",
+    "vat_rate": 15,
+    "tax_rate": 4
+  },
+  {
+    "item_bn": "সংবাদপত্র- অনলাইন",
+    "item_en": "Newspaper - online",
+    "vat_rate": 15,
+    "tax_rate": 4
+  },
+  {
+    "item_bn": "ভাড়া গাড়ী",
+    "item_en": "Rent-a-car",
+    "vat_rate": 15,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "সম্মানী/ভাতা (AIT)",
+    "item_en": "Honorarium / Allowance (AIT)",
+    "vat_rate": 0,
+    "tax_rate": 10
+  },
+  {
+    "item_bn": "পরিষ্কার পরিচ্ছন্নতা সামগ্রী",
+    "item_en": "Cleaning supplies",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "আনুষঙ্গিক কর্মচারী প্রতিষ্ঠান",
+    "item_en": "Ancillary staff org.",
+    "vat_rate": 15,
+    "tax_rate": 0
+  },
+  {
+    "item_bn": "আপ্যায়ন ব্যয়",
+    "item_en": "Entertainment expense",
+    "vat_rate": 15,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "সকুল্য বেতন (সরকারি কর্মচারী ব্যতীত)",
+    "item_en": "Salary (non-govt)",
+    "vat_rate": 0,
+    "tax_rate": 0
+  },
+  {
+    "item_bn": "প্রশিক্ষণ সেমিনার কনফারেন্স ব্যয়",
+    "item_en": "Training/Seminar/Conference",
+    "vat_rate": 15,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "বিদ্যুৎ",
+    "item_en": "Electricity",
+    "vat_rate": 0,
+    "tax_rate": 0
+  },
+  {
+    "item_bn": "ইন্টারনেট, ফ্যাক্স, টেলেক্স",
+    "item_en": "Internet/Fax/Telex",
+    "vat_rate": 5,
+    "tax_rate": 10
+  },
+  {
+    "item_bn": "প্রচার ও বিজ্ঞাপন",
+    "item_en": "Advertising",
+    "vat_rate": 15,
+    "tax_rate": 4
+  },
+  {
+    "item_bn": "বইপত্র সাময়িকী",
+    "item_en": "Books & periodicals",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "প্রকাশনা",
+    "item_en": "Publication",
+    "vat_rate": 10,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "অফিস ভবন ভাড়া",
+    "item_en": "Office building rent",
+    "vat_rate": 15,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "প্রশিক্ষণ ব্যয়",
+    "item_en": "Training expense",
+    "vat_rate": 15,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "পেট্রোল, অয়েল ও লুব্রিকেন্ট",
+    "item_en": "Petrol/Oil/Lubricant",
+    "vat_rate": 7.5,
+    "tax_rate": 0
+  },
+  {
+    "item_bn": "পথ্য সামগ্রী",
+    "item_en": "Nutrition items",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "স্বাস্থ্য বিধান সামগ্রী",
+    "item_en": "Health hygiene items",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "নিরাপত্তা সেবা (ভাড়ার ভিত্তিতে)",
+    "item_en": "Security services (hire)",
+    "vat_rate": 15,
+    "tax_rate": 0
+  },
+  {
+    "item_bn": "কম্পিউটার সামগ্রী",
+    "item_en": "Computer items",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "মুদ্রণ ও বাধাই",
+    "item_en": "Printing & binding",
+    "vat_rate": 10,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "স্ট্যাম্প ও সিল",
+    "item_en": "Stamp & seal",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "অন্যান্য মনিহারি",
+    "item_en": "Other sundry",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "ব্যবহার্য সামগ্রী",
+    "item_en": "Consumables",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "সম্মানী",
+    "item_en": "Honorarium",
+    "vat_rate": 0,
+    "tax_rate": 10
+  },
+  {
+    "item_bn": "অনুষ্ঠান উৎসবাদি",
+    "item_en": "Events & festivals",
+    "vat_rate": 15,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "মোটরযান মেরামত",
+    "item_en": "Motor vehicle repair",
+    "vat_rate": 10,
+    "tax_rate": 8
+  },
+  {
+    "item_bn": "আসবাবপত্র মেরামত",
+    "item_en": "Furniture repair",
+    "vat_rate": 10,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "কম্পিউটার মেরামত",
+    "item_en": "Computer repair",
+    "vat_rate": 10,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "অফিস সরঞ্জামাদি মেরামত",
+    "item_en": "Office equipment repair",
+    "vat_rate": 10,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "অন্যান্য যন্ত্রপাতি ও সরঞ্জামাদি মেরামত",
+    "item_en": "Other machinery repair",
+    "vat_rate": 10,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "আবাসিক ভবন",
+    "item_en": "Residential building",
+    "vat_rate": 7.5,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "অনাবাসিক ভবন",
+    "item_en": "Non-residential building",
+    "vat_rate": 7.5,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "অন্যান্য ভবন ও স্থাপনা",
+    "item_en": "Other buildings & structures",
+    "vat_rate": 7.5,
+    "tax_rate": 5
+  },
+  {
+    "item_bn": "তথ্য ও যোগাযোগ প্রযুক্তি সরঞ্জামাদি",
+    "item_en": "ICT equipment",
+    "vat_rate": 15,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "কম্পিউটার ও আনুষঙ্গিক ক্রয়",
+    "item_en": "Computer & accessories purchase",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "টেলিযোগাযোগ সামগ্রী",
+    "item_en": "Telecom items",
+    "vat_rate": 10,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "বৈদ্যুতিক সরঞ্জামাদি",
+    "item_en": "Electrical items",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "গবেষণাগার সরঞ্জামাদি",
+    "item_en": "Laboratory equipment",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "অফিস সরঞ্জামাদি",
+    "item_en": "Office equipment",
+    "vat_rate": 7.5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "আসবাবপত্র ক্রয়",
+    "item_en": "Furniture purchase",
+    "vat_rate": 15,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "অন্যান্য যন্ত্রপাতি ও সরঞ্জামাদি",
+    "item_en": "Other machines & equipment",
+    "vat_rate": 10,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "কম্পিউটার সফটওয়্যার",
+    "item_en": "Computer software",
+    "vat_rate": 5,
+    "tax_rate": 3
+  },
+  {
+    "item_bn": "প্রজেক্টর ও সাউন্ড সিস্টেম ভাড়া",
+    "item_en": "Projector & sound system rent",
     "vat_rate": 15,
     "tax_rate": 5
   }
