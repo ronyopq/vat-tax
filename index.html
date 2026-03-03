@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bangladesh VAT & TAX Calculator — Corporate</title>
+  <title>BD VAT & TAX — Corporate Dashboard</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -16,6 +16,7 @@
         <i class="fa-solid fa-calculator"></i>
         <span id="siteTitle" data-i18n="site.title">BD VAT & TAX — Dashboard</span>
       </div>
+
       <div class="seg">
         <button id="btnBN" class="segbtn">বাংলা</button>
         <button id="btnEN" class="segbtn">EN</button>
@@ -24,9 +25,12 @@
         <button id="themeToggle" class="segbtn" title="Theme"><i class="fa-solid fa-circle-half-stroke"></i> <span data-i18n="theme">Theme</span></button>
       </div>
       <hr/>
+
       <h3><i class="fa-solid fa-clock-rotate-left"></i> <span data-i18n="history.title">History</span></h3>
       <div id="historyList" class="history"></div>
       <div class="history-actions">
+        <button id="exportCSV" class="btn ghost"><i class="fa-solid fa-file-export"></i> <span data-i18n="history.export">Export CSV</span></button>
+        <button id="shareLink" class="btn ghost"><i class="fa-solid fa-share-from-square"></i> <span data-i18n="history.share">Share</span></button>
         <button id="clearHistory" class="btn ghost"><i class="fa-solid fa-trash"></i> <span data-i18n="history.clear">Clear</span></button>
       </div>
     </aside>
@@ -34,7 +38,7 @@
     <main class="main">
       <header class="toolbar">
         <div class="toolbar-left">
-          <div class="field">
+          <div class="field category fixed">
             <label data-i18n="input.category">Category</label>
             <select id="category"></select>
           </div>
@@ -54,43 +58,51 @@
           <button id="calcBtn" class="btn primary xl"><i class="fa-solid fa-bolt"></i> <span data-i18n="btn.calculate">Calculate</span></button>
           <button id="saveBtn" class="btn accent xl"><i class="fa-solid fa-bookmark"></i> <span data-i18n="btn.save">Save</span></button>
           <button id="pdfBtn" class="btn ghost xl"><i class="fa-solid fa-file-pdf"></i> <span data-i18n="btn.pdf">PDF</span></button>
+          <button id="reportBtn" class="btn ghost xl"><i class="fa-solid fa-table"></i> <span data-i18n="btn.report">Report</span></button>
         </div>
       </header>
 
+      <!-- mini charts row -->
+      <section class="minirow">
+        <div class="mini card">
+          <div class="mini-head"><i class="fa-solid fa-chart-pie"></i> <span data-i18n="mini.comp">Composition</span></div>
+          <canvas id="chartDonut" height="130"></canvas>
+        </div>
+        <div class="mini card">
+          <div class="mini-head"><i class="fa-solid fa-chart-simple"></i> <span data-i18n="mini.compare">Compare views</span></div>
+          <canvas id="chartBar" height="130"></canvas>
+        </div>
+      </section>
+
+      <!-- results grid (5 views) -->
       <section class="grid5">
+        <!-- View 1 redesigned like view 3/4/5 -->
         <article class="card" id="view1">
           <h4>1) <span data-i18n="view1.title">Calculation VAT & TAX (Gross UP) - Please Follow the Rules any Local Bill Amount</span></h4>
-          <div class="table like">
-            <div class="row head">
-              <div class="cell" data-i18n="col.base">Base Value</div>
-              <div class="cell">VAT</div>
-              <div class="cell">TAX</div>
-              <div class="cell" data-i18n="col.total">Total Amount</div>
-            </div>
-            <div class="row">
-              <div class="cell" id="v1_base">—</div>
-              <div class="cell" id="v1_vat">—</div>
-              <div class="cell" id="v1_tax">—</div>
-              <div class="cell" id="v1_total">—</div>
-            </div>
+          <div class="grid two">
+            <div class="badge"><span data-i18n="col.bill">Base Value</span> <strong id="hdr1_base">—</strong></div>
+            <div class="badge">VAT% <strong id="hdr1_v">—</strong> | TAX% <strong id="hdr1_t">—</strong></div>
+          </div>
+          <div class="table">
+            <div class="row"><div class="cell" data-i18n="col.base">Base Value</div><div class="cell" id="v1_base">—</div></div>
+            <div class="row"><div class="cell">VAT</div><div class="cell" id="v1_vat">—</div></div>
+            <div class="row"><div class="cell">TAX</div><div class="cell" id="v1_tax">—</div></div>
+            <div class="row emph"><div class="cell" data-i18n="col.total">Total Amount</div><div class="cell" id="v1_total">—</div></div>
           </div>
         </article>
 
+        <!-- View 2 redesigned like view 3/4/5 -->
         <article class="card" id="view2">
           <h4>2) <span data-i18n="view2.title">Calculation VAT & TAX - Procurement/Vendor</span></h4>
-          <div class="table like">
-            <div class="row head">
-              <div class="cell" data-i18n="col.actual">Actual Pay</div>
-              <div class="cell">VAT</div>
-              <div class="cell">TAX</div>
-              <div class="cell" data-i18n="col.total">Total Amount</div>
-            </div>
-            <div class="row">
-              <div class="cell" id="v2_actual">—</div>
-              <div class="cell" id="v2_vat">—</div>
-              <div class="cell" id="v2_tax">—</div>
-              <div class="cell" id="v2_total">—</div>
-            </div>
+          <div class="grid two">
+            <div class="badge"><span data-i18n="col.base">Base Value</span> <strong id="hdr2_base">—</strong></div>
+            <div class="badge">VAT% <strong id="hdr2_v">—</strong> | TAX% <strong id="hdr2_t">—</strong></div>
+          </div>
+          <div class="table">
+            <div class="row"><div class="cell" data-i18n="col.actual">Actual Pay</div><div class="cell" id="v2_actual">—</div></div>
+            <div class="row"><div class="cell">VAT</div><div class="cell" id="v2_vat">—</div></div>
+            <div class="row"><div class="cell">TAX</div><div class="cell" id="v2_tax">—</div></div>
+            <div class="row emph"><div class="cell" data-i18n="col.total">Total Amount</div><div class="cell" id="v2_total">—</div></div>
           </div>
         </article>
 
@@ -144,10 +156,13 @@
     </main>
   </div>
 
+  <!-- vendor libs -->
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
