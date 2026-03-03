@@ -1,24 +1,28 @@
-// i18n dictionary
+// i18n strings
 const i18n = {
   bn: {
-    'site.title':'VAT & TAX ক্যালকুলেটর (বাংলাদেশ)',
-    'hero.head':'সহজে VAT & TAX হিসাব করুন',
-    'hero.sub':'ক্যাটেগরি বেছে নিন, এমাউন্ট দিন, আর বাকি কাজ আমাদের ক্যালকুলেটর করবে। মোবাইল ও ডেস্কটপ—সব জায়গায় সুন্দরভাবে কাজ করে।',
-    'input.title':'ইনপুট','input.category':'ক্যাটেগরি','input.rateSource':'হারের উৎস','input.rateSource.list':'লিস্ট থেকে (ফাইল অনুযায়ী)','input.rateSource.custom':'কাস্টম হার','input.amountType':'পরিমাণের ধরন','input.amountType.base':'বেস এমাউন্ট (VAT/TDS ছাড়া)','input.amountType.incvat':'VAT সহ মোট এমাউন্ট (TDS ছাড়ার আগে)','input.amountType.net':'নেট পেমেন্ট (VAT যোগ, TDS বাদে)','input.amount':'পরিমাণ (Tk)',
-    'btn.calculate':'ক্যালকুলেট','btn.reset':'রিসেট','btn.download':'ডাউনলোড (PDF)',
-    'result.title':'রেজাল্ট','result.base':'বেস এমাউন্ট','result.gross':'মোট বিল (VAT সহ)','result.net':'নেট পেমেন্ট','result.note':'নোট: এখানে TDS ধরা হয়েছে বেস এমাউন্টের উপর প্রযোজ্য (সাধারণ প্র্যাকটিস)। প্রয়োজনে কাস্টম হার বেছে নিন।',
-    'tips.title':'টিপস','tips.t1':'ড্রপডাউনটি সার্চেবল—কেবল টাইপ করুন, দ্রুত ফিল্টার হবে।','tips.t2':'ক্যালকুলেট চাপলেই একটি শান্তিপূর্ণ ও মজার অ্যানিমেশন দেখাবে।','tips.t3':'PDF বাটনে ক্লিক করলে আজকের তারিখসহ পুরো পেইজের স্ক্রিনশট PDF হবে।',
-    'footer.copy':'© ২০২৬ VAT & TAX ক্যালকুলেটর · GitHub Pages দিয়ে হোস্টেড'
+    'site.title':'বিডি VAT & TAX — ড্যাশবোর্ড',
+    'history.title':'হিস্ট্রি', 'history.clear':'ক্লিয়ার',
+    'input.category':'ক্যাটেগরি', 'input.rateSource':'হারের উৎস', 'input.rateSource.list':'লিস্ট থেকে', 'input.rateSource.custom':'কাস্টম', 'input.amount':'বিল এমাউন্ট (Tk)', 'input.currency':'কারেন্সি',
+    'btn.calculate':'ক্যালকুলেট', 'btn.save':'সেভ', 'btn.pdf':'PDF', 'theme':'থিম',
+    'view1.title':'Calculation VAT & TAX (Gross UP) - Please Follow the Rules any Local Bill Amount',
+    'view2.title':'Calculation VAT & TAX - Procurement/Vendor',
+    'view3.title':'AMOUNT INCLUDING VAT & TAX — VAT & TAX DEDUCTION',
+    'view4.title':'AMOUNT EXCLUDING VAT & TAX — VAT & TAX DEDUCTION',
+    'view5.title':'AMOUNT EXCLUDING VAT — VAT & TAX DEDUCTION',
+    'col.base':'বেস ভ্যালু', 'col.total':'মোট', 'col.bill':'বিল এমাউন্ট', 'col.actual':'Actual Pay'
   },
   en: {
-    'site.title':'VAT & TAX Calculator (Bangladesh)',
-    'hero.head':'Calculate VAT & TDS in seconds',
-    'hero.sub':'Pick a category, enter an amount, and get instant results. Beautiful on mobile and desktop.',
-    'input.title':'Input','input.category':'Category','input.rateSource':'Rate Source','input.rateSource.list':'From list (file-based)','input.rateSource.custom':'Custom rates','input.amountType':'Amount Type','input.amountType.base':'Base amount (excl. VAT/TDS)','input.amountType.incvat':'Amount including VAT','input.amountType.net':'Net payment (after TDS)','input.amount':'Amount (Tk)',
-    'btn.calculate':'Calculate','btn.reset':'Reset','btn.download':'Download (PDF)',
-    'result.title':'Results','result.base':'Base Amount','result.gross':'Gross (incl. VAT)','result.net':'Net Payment','result.note':'Note: TDS is applied on base amount (common practice). Switch to custom to adjust as needed.',
-    'tips.title':'Tips','tips.t1':'Dropdown is searchable—just type to filter.','tips.t2':'A soothing, playful animation appears on Calculate.','tips.t3':'PDF button saves a dated screenshot of this page.',
-    'footer.copy':'© 2026 VAT & TAX Calculator · Hosted on GitHub Pages'
+    'site.title':'BD VAT & TAX — Dashboard',
+    'history.title':'History', 'history.clear':'Clear',
+    'input.category':'Category', 'input.rateSource':'Rate Source', 'input.rateSource.list':'From list', 'input.rateSource.custom':'Custom', 'input.amount':'Bill Amount (Tk)', 'input.currency':'Currency',
+    'btn.calculate':'Calculate', 'btn.save':'Save', 'btn.pdf':'PDF', 'theme':'Theme',
+    'view1.title':'Calculation VAT & TAX (Gross UP) - Please Follow the Rules any Local Bill Amount',
+    'view2.title':'Calculation VAT & TAX - Procurement/Vendor',
+    'view3.title':'AMOUNT INCLUDING VAT & TAX — VAT & TAX DEDUCTION',
+    'view4.title':'AMOUNT EXCLUDING VAT & TAX — VAT & TAX DEDUCTION',
+    'view5.title':'AMOUNT EXCLUDING VAT — VAT & TAX DEDUCTION',
+    'col.base':'Base Value', 'col.total':'Total Amount', 'col.bill':'Bill amount', 'col.actual':'Actual Pay'
   }
 };
 
@@ -26,11 +30,10 @@ function setLang(lang){
   localStorage.setItem('lang', lang);
   document.documentElement.lang = (lang==='bn'?'bn':'en');
   document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    const str = (i18n[lang] && i18n[lang][key]) || i18n.bn[key] || i18n.en[key] || el.textContent;
-    el.textContent = str;
+    const key=el.getAttribute('data-i18n');
+    const str=(i18n[lang]&&i18n[lang][key])||i18n.bn[key]||i18n.en[key]||el.textContent;
+    el.textContent=str;
   });
-  // Toggle button highlight
   document.getElementById('btnBN').classList.toggle('active', lang==='bn');
   document.getElementById('btnEN').classList.toggle('active', lang==='en');
 }
@@ -40,144 +43,169 @@ async function loadRates(){
   return res.json();
 }
 
-function round2(x){ return Math.round((x + Number.EPSILON) * 100) / 100; }
+function fmt(n){ return Number(n).toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2}); }
+function round2(x){ return Math.round((x+Number.EPSILON)*100)/100; }
 
-function compute(type, amount, vat, tax){
-  const v = vat/100.0; const t = tax/100.0;
-  let base;
-  if(type==='base') base = amount;
-  else if(type==='inc_vat') base = amount / (1+v);
-  else if(type==='net') base = amount / (1+v - t);
-  const vatTk = base * v;
-  const taxTk = base * t; // TDS on base
-  const gross = base + vatTk;
-  const net = gross - taxTk;
-  return { base:round2(base), vatTk:round2(vatTk), taxTk:round2(taxTk), gross:round2(gross), net:round2(net) };
+// Excel-like calculations for 5 views
+function calcAll(bill, v, t){
+  const V=v/100, T=t/100;
+  // View 1: Gross UP (assume entered bill is Base; Total adds both VAT & TAX)
+  const v1_base = bill; const v1_vat = v1_base*V; const v1_tax=v1_base*T; const v1_total=v1_base+v1_vat+v1_tax;
+
+  // View 2: Procurement/Vendor
+  // Total Amount = base + VAT (invoice total), TAX is withheld on base; Actual Pay = base - TAX
+  const v2_vat = bill*V; const v2_tax = bill*T; const v2_total = bill+v2_vat; const v2_actual = bill - v2_tax;
+
+  // View 3: Amount INCLUDING VAT & TAX (input includes VAT)
+  const v3_base = bill/(1+V); const v3_vat = bill - v3_base; const v3_tax = v3_base*T; const v3_net = bill - v3_vat - v3_tax;
+
+  // View 4: Amount EXCLUDING VAT & TAX (input excludes both)
+  const v4_add_tax = bill*T; const v4_add_vat = bill*V; const v4_total = bill + v4_add_tax + v4_add_vat; const v4_less_vat = v4_add_vat; const v4_less_tax = v4_add_tax; const v4_net = v4_total - v4_less_vat - v4_less_tax; // == bill
+
+  // View 5: Amount EXCLUDING VAT (input excludes only VAT)
+  const v5_add_vat = bill*V; const v5_total = bill + v5_add_vat; const v5_less_vat = v5_add_vat; const v5_less_tax = bill*T; const v5_net = bill - v5_less_tax;
+
+  return {
+    v1:{base:v1_base, vat:v1_vat, tax:v1_tax, total:v1_total},
+    v2:{actual:v2_actual, vat:v2_vat, tax:v2_tax, total:v2_total},
+    v3:{bill:bill, vat:v3_vat, tax:v3_tax, net:v3_net, v:v, t:t},
+    v4:{bill:bill, add_tax:v4_add_tax, add_vat:v4_add_vat, total:v4_total, less_vat:v4_less_vat, less_tax:v4_less_tax, net:v4_net, v:v, t:t},
+    v5:{bill:bill, add_vat:v5_add_vat, total:v5_total, less_vat:v5_less_vat, less_tax:v5_less_tax, net:v5_net, v:v, t:t}
+  };
 }
 
-function animateNumbers(values){
-  const targets = [
-    {id:'baseOut', val:values.base},
-    {id:'vatOut', val:values.vatTk},
-    {id:'taxOut', val:values.taxTk},
-    {id:'grossOut', val:values.gross},
-    {id:'netOut', val:values.net}
-  ];
-  targets.forEach(t=>{
-    const el = document.getElementById(t.id);
-    const from = Number(el.textContent.replace(/[^0-9.]/g,'')) || 0;
-    anime({ targets:{n:from}, n:t.val, duration:1000, easing:'easeOutExpo', update:anim=>{ el.textContent = anim.animations[0].currentValue.toFixed(2); } });
+function saveHistory(entry){
+  const key='vat_tax_history';
+  const list = JSON.parse(localStorage.getItem(key)||'[]');
+  list.unshift(entry); // push to top
+  if(list.length>50) list.pop();
+  localStorage.setItem(key, JSON.stringify(list));
+}
+function loadHistory(){ return JSON.parse(localStorage.getItem('vat_tax_history')||'[]'); }
+function clearHistory(){ localStorage.removeItem('vat_tax_history'); }
+
+function renderHistory(cur){
+  const list = loadHistory();
+  const el = document.getElementById('historyList');
+  el.innerHTML='';
+  list.forEach((h,idx)=>{
+    const div=document.createElement('div'); div.className='hist-item';
+    const left=document.createElement('div'); left.innerHTML=`<div><strong>${h.item}</strong> — ${h.amount} @ VAT ${h.v}% | TAX ${h.t}%</div><div class="meta">${new Date(h.ts).toLocaleString()}</div>`;
+    const right=document.createElement('div');
+    const btn=document.createElement('button'); btn.className='btn'; btn.innerHTML='<i class="fa-solid fa-rotate-right"></i>';
+    btn.onclick=()=>{ // reapply
+      document.getElementById('amount').value=h.amount; document.getElementById('vat').value=h.v; document.getElementById('tax').value=h.t; calc(); };
+    right.appendChild(btn);
+    div.appendChild(left); div.appendChild(right);
+    el.appendChild(div);
   });
 }
 
-function rippleAndConfetti(){
-  const ov = document.getElementById('effect-overlay');
-  ov.classList.add('show');
-  setTimeout(()=>ov.classList.remove('show'), 900);
-  // Confetti burst
-  if(window.confetti){
-    confetti({ particleCount: 120, spread: 70, origin: { y: 0.2 } });
-    setTimeout(()=>confetti({ particleCount: 80, angle: 120, spread: 60, origin:{ x:0.1, y:0.6 }}), 250);
-    setTimeout(()=>confetti({ particleCount: 80, angle: 60, spread: 60, origin:{ x:0.9, y:0.6 }}), 350);
-  }
+function setThemeToggle(){
+  const cur = localStorage.getItem('theme')||'auto';
+  if(cur==='light' || cur==='dark') document.documentElement.setAttribute('data-theme', cur);
+  else { const dark = window.matchMedia('(prefers-color-scheme: dark)').matches; document.documentElement.setAttribute('data-theme', dark?'dark':'light'); }
+  document.getElementById('themeToggle').onclick=()=>{
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme', next); localStorage.setItem('theme', next);
+  };
 }
 
-function makePDF(){
-  const { jsPDF } = window.jspdf;
-  const d = new Date();
-  const site = location.href;
-  const title = document.getElementById('siteTitle').textContent;
-  html2canvas(document.body, {scale:2, useCORS:true, backgroundColor:'#070b14'}).then(canvas=>{
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p','mm','a4');
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const pageHeight = pdf.internal.pageSize.getHeight();
-    // Header
-    pdf.setFontSize(12);
-    pdf.text(`${title}`, 10, 10);
-    pdf.setFontSize(9);
-    pdf.text(`${site}`, 10, 16);
-    pdf.text(`${d.toLocaleString()}`, 10, 22);
-    // Image sizing
-    const imgWidth = pageWidth - 20; // 10mm margin
-    const imgHeight = imgWidth * (canvas.height/canvas.width);
-    pdf.addImage(imgData, 'PNG', 10, 28, imgWidth, imgHeight);
-    pdf.save('vat_tax_calculator.pdf');
-  });
-}
+function makePDF(){ const { jsPDF } = window.jspdf; const d=new Date(); const title=document.getElementById('siteTitle').textContent; html2canvas(document.body,{scale:2}).then(canvas=>{ const pdf=new jsPDF('p','mm','a4'); const pageWidth=pdf.internal.pageSize.getWidth(); pdf.setFontSize(12); pdf.text(title,10,10); pdf.setFontSize(9); pdf.text(location.href,10,16); pdf.text(d.toLocaleString(),10,22); const imgW=pageWidth-20; const imgH=imgW*(canvas.height/canvas.width); pdf.addImage(canvas.toDataURL('image/png'),'PNG',10,28,imgW,imgH); pdf.save('bd_vat_tax.pdf'); }); }
 
-(async function init(){
-  // Language setup
-  const stored = localStorage.getItem('lang');
-  setLang(stored || 'bn');
-  document.getElementById('btnBN').addEventListener('click',()=>setLang('bn'));
-  document.getElementById('btnEN').addEventListener('click',()=>setLang('en'));
+async function init(){
+  // Language
+  setLang(localStorage.getItem('lang')||'bn');
+  document.getElementById('btnBN').onclick=()=>setLang('bn');
+  document.getElementById('btnEN').onclick=()=>setLang('en');
 
-  // Background particles (simple orbs moving)
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
-  window.addEventListener('resize', resize); resize();
-  const orbs = Array.from({length:18}, ()=>({
-    x: Math.random()*canvas.width, y: Math.random()*canvas.height,
-    r: 40+Math.random()*80, s: .2+Math.random()*.6,
-    c: `hsla(${Math.random()*360},70%,50%,.08)`
-  }));
-  (function loop(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    orbs.forEach(o=>{ ctx.beginPath(); ctx.fillStyle=o.c; ctx.arc(o.x,o.y,o.r,0,Math.PI*2); ctx.fill(); o.x+=Math.sin(o.y*0.002)*o.s; o.y+=Math.cos(o.x*0.002)*o.s; if(o.x<-100) o.x=canvas.width+100; if(o.x>canvas.width+100) o.x=-100; if(o.y<-100) o.y=canvas.height+100; if(o.y>canvas.height+100) o.y=-100; });
-    requestAnimationFrame(loop);
-  })();
+  setThemeToggle();
+
+  // Load category list
+  const rates = await loadRates();
+  const cat = document.getElementById('category');
+  rates.forEach(r=>{ const opt=document.createElement('option'); opt.value=JSON.stringify(r); opt.textContent=`${r.item_bn} / ${r.item_en}`; cat.appendChild(opt);});
+  const choices = new Choices(cat, { searchEnabled:true, shouldSort:false, itemSelectText:'', searchResultLimit:200});
 
   const rateSrc = document.getElementById('rateSource');
   const vatInp = document.getElementById('vat');
   const taxInp = document.getElementById('tax');
-  const amountType = document.getElementById('amountType');
-  const amountInp = document.getElementById('amount');
-  const out = { base: document.getElementById('baseOut'), vat: document.getElementById('vatOut'), tax: document.getElementById('taxOut'), gross: document.getElementById('grossOut'), net: document.getElementById('netOut') };
-
-  // Load rates and build searchable dropdown (Choices.js)
-  const data = await loadRates();
-  const catSelect = document.getElementById('category');
-  data.forEach(r=>{
-    const opt = document.createElement('option');
-    opt.value = JSON.stringify(r); opt.textContent = r.item; catSelect.appendChild(opt);
+  cat.addEventListener('change', ()=>{
+    if(rateSrc.value==='custom') return;
+    try{ const r=JSON.parse(choices.getValue(true)); vatInp.value=r.vat_rate; taxInp.value=r.tax_rate; vatInp.disabled=true; taxInp.disabled=true; }catch(e){}
   });
-  const choices = new Choices(catSelect, { searchEnabled: true, itemSelectText:'', shouldSort: false, placeholderValue: 'Select...', searchResultLimit: 50 });
+  rateSrc.onchange=()=>{ const custom=rateSrc.value==='custom'; vatInp.disabled=!custom; taxInp.disabled=!custom; };
 
-  function setRatesFromCategory(){
-    if(rateSrc.value==='custom'){ vatInp.disabled=false; taxInp.disabled=false; return; }
-    const v = choices.getValue(true); // raw value
-    if(!v){ vatInp.value=''; taxInp.value=''; return; }
-    try{ const r = JSON.parse(v); vatInp.value = r.vat_rate ?? ''; taxInp.value = r.tax_rate ?? ''; vatInp.disabled = true; taxInp.disabled = true; } catch(e){}
-  }
-  catSelect.addEventListener('change', setRatesFromCategory);
-  rateSrc.addEventListener('change', ()=>{ const custom = rateSrc.value==='custom'; vatInp.disabled=!custom; taxInp.disabled=!custom; });
+  document.getElementById('calcBtn').onclick = calc;
+  document.getElementById('saveBtn').onclick = ()=>{
+    const amt = parseFloat(document.getElementById('amount').value||'0');
+    const v = parseFloat(vatInp.value||'0');
+    const t = parseFloat(taxInp.value||'0');
+    const item = (choices.getValue(true)? JSON.parse(choices.getValue(true)).item_bn : 'Custom');
+    saveHistory({amount:amt, v:v, t:t, item:item, ts:Date.now()});
+    renderHistory();
+  };
+  document.getElementById('clearHistory').onclick=()=>{ clearHistory(); renderHistory(); };
+  document.getElementById('pdfBtn').onclick=makePDF;
 
-  function doCalc(){
-    const type = amountType.value; const amt = parseFloat(amountInp.value||'0'); const vat = parseFloat(vatInp.value||'0'); const tax = parseFloat(taxInp.value||'0');
-    const res = compute(type, amt, vat, tax);
-    animateNumbers(res);
-    rippleAndConfetti();
-  }
+  renderHistory();
 
-  document.getElementById('calcBtn').addEventListener('click', doCalc);
-  document.getElementById('resetBtn').addEventListener('click', ()=>{ amountInp.value=1000; choices.removeActiveItems(); vatInp.value=''; taxInp.value=''; setRatesFromCategory(); animateNumbers({base:0,vatTk:0,taxTk:0,gross:0,net:0}); });
-  document.getElementById('pdfBtn').addEventListener('click', makePDF);
+  // Set defaults from first item
+  if(rates[0]){ vatInp.value=rates[0].vat_rate; taxInp.value=rates[0].tax_rate; }
+  calc();
+}
 
-  // Initial
-  setRatesFromCategory();
-  animateNumbers({base:0,vatTk:0,taxTk:0,gross:0,net:0});
+function calc(){
+  const amt = parseFloat(document.getElementById('amount').value||'0');
+  const v = parseFloat(document.getElementById('vat').value||'0');
+  const t = parseFloat(document.getElementById('tax').value||'0');
+  const cur = document.getElementById('currency').value || '';
+  const out = calcAll(amt, v, t);
 
-  // Parallax tilt on cards
-  document.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('mousemove', e=>{
-      const r = card.getBoundingClientRect();
-      const rx = ((e.clientY - r.top)/r.height - .5)*-6; // tilt X
-      const ry = ((e.clientX - r.left)/r.width - .5)*6; // tilt Y
-      card.style.setProperty('--rx', rx+'deg');
-      card.style.setProperty('--ry', ry+'deg');
-    });
-    card.addEventListener('mouseleave', ()=>{ card.style.removeProperty('--rx'); card.style.removeProperty('--ry'); });
-  });
-})();
+  // View 1
+  document.getElementById('v1_base').textContent = cur+fmt(out.v1.base);
+  document.getElementById('v1_vat').textContent  = cur+fmt(out.v1.vat);
+  document.getElementById('v1_tax').textContent  = cur+fmt(out.v1.tax);
+  document.getElementById('v1_total').textContent= cur+fmt(out.v1.total);
+
+  // View 2
+  document.getElementById('v2_actual').textContent = cur+fmt(out.v2.actual);
+  document.getElementById('v2_vat').textContent    = cur+fmt(out.v2.vat);
+  document.getElementById('v2_tax').textContent    = cur+fmt(out.v2.tax);
+  document.getElementById('v2_total').textContent  = cur+fmt(out.v2.total);
+
+  // View 3
+  document.getElementById('hdr3_amt').textContent = cur+fmt(amt);
+  document.getElementById('hdr3_v').textContent = v.toFixed(2);
+  document.getElementById('hdr3_t').textContent = t.toFixed(2);
+  document.getElementById('v3_bill').textContent = cur+fmt(out.v3.bill);
+  document.getElementById('v3_vat').textContent  = cur+fmt(out.v3.vat);
+  document.getElementById('v3_tax').textContent  = cur+fmt(out.v3.tax);
+  document.getElementById('v3_net').textContent  = cur+fmt(out.v3.net);
+
+  // View 4
+  document.getElementById('hdr4_amt').textContent = cur+fmt(amt);
+  document.getElementById('hdr4_v').textContent = v.toFixed(2);
+  document.getElementById('hdr4_t').textContent = t.toFixed(2);
+  document.getElementById('v4_bill').textContent = cur+fmt(out.v4.bill);
+  document.getElementById('v4_add_tax').textContent = cur+fmt(out.v4.add_tax);
+  document.getElementById('v4_add_vat').textContent = cur+fmt(out.v4.add_vat);
+  document.getElementById('v4_total').textContent   = cur+fmt(out.v4.total);
+  document.getElementById('v4_less_vat').textContent = cur+fmt(out.v4.less_vat);
+  document.getElementById('v4_less_tax').textContent = cur+fmt(out.v4.less_tax);
+  document.getElementById('v4_net').textContent     = cur+fmt(out.v4.net);
+
+  // View 5
+  document.getElementById('hdr5_amt').textContent = cur+fmt(amt);
+  document.getElementById('hdr5_v').textContent = v.toFixed(2);
+  document.getElementById('hdr5_t').textContent = t.toFixed(2);
+  document.getElementById('v5_bill').textContent = cur+fmt(out.v5.bill);
+  document.getElementById('v5_add_vat').textContent = cur+fmt(out.v5.add_vat);
+  document.getElementById('v5_total').textContent   = cur+fmt(out.v5.total);
+  document.getElementById('v5_less_vat').textContent = cur+fmt(out.v5.less_vat);
+  document.getElementById('v5_less_tax').textContent = cur+fmt(out.v5.less_tax);
+  document.getElementById('v5_net').textContent     = cur+fmt(out.v5.net);
+}
+
+window.addEventListener('DOMContentLoaded', init);
